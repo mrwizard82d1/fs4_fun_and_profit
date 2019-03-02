@@ -20,6 +20,7 @@
       <None Include="Concurrency\SeriesAndParallel.fsx" />
       <None Include="Concurrency\DownloadSync.fsx" />
       <None Include="Concurrency\DownloadAsync.fsx" />
+      <None Include="Concurrency\ParallelComputation.fsx" />
     </ItemGroup>
 
 </Project>
