@@ -18,6 +18,8 @@
       <None Include="Concurrency\LoopWithoutCancelling.fsx" />
       <None Include="Concurrency\LoopWithCancelling.fsx" />
       <None Include="Concurrency\SeriesAndParallel.fsx" />
+      <None Include="Concurrency\DownloadSync.fsx" />
+      <None Include="Concurrency\DownloadAsync.fsx" />
     </ItemGroup>
 
 </Project>
