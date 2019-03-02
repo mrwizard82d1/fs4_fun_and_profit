@@ -17,6 +17,7 @@
       <None Include="Concurrency\CreateNestedWorkflow.fsx" />
       <None Include="Concurrency\LoopWithoutCancelling.fsx" />
       <None Include="Concurrency\LoopWithCancelling.fsx" />
+      <None Include="Concurrency\SeriesAndParallel.fsx" />
     </ItemGroup>
 
 </Project>
