@@ -14,6 +14,7 @@
       <None Include="Concurrency\IntroAsyncWorkflows.fsx" />
       <None Include="Concurrency\FileWriteWithAsync.fsx" />
       <None Include="Concurrency\CreateAsyncWorkflow.fsx" />
+      <None Include="Concurrency\CreateNestedWorkflow.fsx" />
     </ItemGroup>
 
 </Project>
