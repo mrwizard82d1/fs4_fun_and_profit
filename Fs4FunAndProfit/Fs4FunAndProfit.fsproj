@@ -11,6 +11,7 @@
 
     <ItemGroup>
       <None Include="Concurrency\TraditionalAsync.fsx" />
+      <None Include="Concurrency\IntroAsyncWorkflows.fsx" />
     </ItemGroup>
 
 </Project>
