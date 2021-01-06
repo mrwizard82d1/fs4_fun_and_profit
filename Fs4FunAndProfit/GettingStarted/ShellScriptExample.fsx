@@ -3,7 +3,7 @@
 //   Downloads the given URL and stores it as a file with a time stamp.
 //
 //   Example command line:
-//      fsi ShellScriptExample.fsx http://google.com google
+//      dotnet fsi ShellScriptExample.fsx http://google.com google
 
 
 // "Open" brings a .NET namespace into visiblity

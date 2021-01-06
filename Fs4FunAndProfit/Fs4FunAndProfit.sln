@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ShellScriptExample", "ShellScriptExample\ShellScriptExample.fsproj", "{F1668B5E-B938-4D20-9819-505A28489D41}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GettingStarted", "GettingStarted\GettingStarted.fsproj", "{F1668B5E-B938-4D20-9819-505A28489D41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
