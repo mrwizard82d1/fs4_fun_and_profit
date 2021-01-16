@@ -9,7 +9,7 @@
         <Compile Include="Program.fs" />
         <None Include="ShellScriptExample.fsx" />
         <None Include="SyntaxInFs60.fsx" />
-        <None Include="GeneralTroubleshooting.fsx" />
+        <None Include="TroubleshootingGuidelines.fsx" />
     </ItemGroup>
 
 </Project>
