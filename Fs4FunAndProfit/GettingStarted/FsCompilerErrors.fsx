@@ -505,3 +505,94 @@ let f =
 x + 1          // offside! You are ahead of the ball!
 
 // The fix: align the code properly.
+
+// -- FS0010: Incomplete structured constant
+type Something() =
+    let field = ()
+    
+// error -- but not at compile time. Expression creates an alias for the Something constructor
+let s1 = Something
+
+// correct - include trailing `()`
+let s2 = new Something()
+
+// Can also occur if you forget to put parentheses around an operator.
+
+// define a new operator
+let (|+) a = -a
+
+// error FS0010: unexpected infix operator
+|+ 1
+
+// correct usage - with surrounding parentheses
+(|+) 1
+
+// Can also occur if you attempt to send a namespace definition to F# interactive console. The interactive
+// console does not allow namespaces.
+//namespace Customer
+//    type Person = { First:string; Last:string }
+    
+// FS0013: The static coercion from type X to Y involves an indeterminate type
+
+// ???
+
+// FS0020: This expression should have type `unit`
+// Commonly occurs in two situations:
+// - Expressions are **not** last in the block
+// - Using the wrong assignment operator
+
+// FS0020: Not last expression in the block
+
+// Only the last expression in a block can return a value. Any others that return a value must explicitly be
+// ignored.
+//let something =
+//    2 + 2
+//    "hello"
+
+// The easy fix is to use `ignore`. But you may want to ask yourself, "Why are you throwing away this
+// intermediate value."
+let something =
+    2 + 2 |> ignore
+    "hello"
+    
+// This error can also occur if you think you are writing C# and use a semicolon to separate "statements"
+// let result = 2 + 2; "hello"
+
+// let result = 2 + 2 |> ignore; "hello"
+
+// FS0020 with assignment
+
+// Another variant of this error occurs when assigning to a property. With this error, you have most likely
+// confused the assignment operator `<-` for mutable values with the equality comparison operator, `=`.
+
+// wrong
+//let add() =
+//    let mutable x = 1
+//    x = x + 1 // warning
+//    printfn "%d" x
+
+// The fix is to use the proper assignment operator.
+let add() =
+    let mutable x = 1
+    x <- x + 1 
+    printfn "%d" x
+
+// FS0030: Value restriction
+
+// Relates to F# automatic generalization to generic types whenever possible.
+let id x = x
+let compose f g x = g (f x)
+let opt = None
+
+// The type inference engine of F# cleverly determines the generic types.
+
+// However, in some cases, the F# compiler feels that the code is ambiguous, and, even though it looks like
+// it is guessing the type correctly, it needs you to be more specific.
+// FS0020
+let idMap = List.map id
+let blankConcat = String.concat ""
+
+// Almost always this will be caused by trying to define a partially applied function, and, almost always,
+// the easiest fix is to explicitly add the missing parameter.
+let idMap list = List.map id list
+let blankConcat list = String.concat "" list
